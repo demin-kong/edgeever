@@ -1,10 +1,8 @@
 const menuCopy = {
   en: {
     about: "About EdgeEver",
-    addToDictionary: "Add to Dictionary",
     close: "Close Window",
     copy: "Copy",
-    copyLinkAddress: "Copy Link Address",
     cut: "Cut",
     edit: "Edit",
     file: "File",
@@ -15,7 +13,6 @@ const menuCopy = {
     newMemo: "New Note",
     newNotebook: "New Notebook",
     paste: "Paste",
-    pasteAsPlainText: "Paste as Plain Text",
     quit: "Quit EdgeEver",
     resetZoom: "Reset Zoom",
     restartToUpdate: "Restart to update",
@@ -35,10 +32,8 @@ const menuCopy = {
   },
   zh: {
     about: "关于 EdgeEver",
-    addToDictionary: "添加到词典",
     close: "关闭窗口",
     copy: "复制",
-    copyLinkAddress: "复制链接地址",
     cut: "剪切",
     edit: "编辑",
     file: "文件",
@@ -49,7 +44,6 @@ const menuCopy = {
     newMemo: "新建笔记",
     newNotebook: "新建笔记本",
     paste: "粘贴",
-    pasteAsPlainText: "粘贴为纯文本",
     quit: "退出 EdgeEver",
     resetZoom: "重置缩放",
     restartToUpdate: "重启以更新",
@@ -67,11 +61,10 @@ const menuCopy = {
     zoomIn: "放大",
     zoomOut: "缩小",
   },
-
 };
 
-export const desktopMenuCopy = (locale) => {
-  const normalized = typeof locale === "string" ? locale.toLowerCase() : "";
-  if (normalized.startsWith("zh")) return menuCopy.zh;
-  return menuCopy.en;
-};
+export const desktopMenuCopy = (locale) => (
+  typeof locale === "string" && locale.toLowerCase().startsWith("zh")
+    ? menuCopy.zh
+    : menuCopy.en
+);
